@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    networks:
+      - tds-local-vnet
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: "${DB_NAME}"
+      POSTGRES_USER: "${DB_USER}"
+      POSTGRES_PASSWORD: "${DB_PASS}"
+      PGDATA: /var/lib/postgresql/data/tds
+    volumes:
+      - tdsdb:/var/lib/postgresql/data
+
+networks:
+  tds-local-vnet:
+    driver: bridge
+
+volumes:
+  tdsdb:
+    driver: local
