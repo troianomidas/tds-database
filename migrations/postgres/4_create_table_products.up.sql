@@ -1,0 +1,28 @@
+
+CREATE TABLE IF NOT EXISTS PUBLIC.products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    category_id INT NOT NULL,
+    description TEXT,
+    barcode_ean VARCHAR(255),
+    sku VARCHAR(100),
+    image_url VARCHAR(255),
+    unit_price DECIMAL(18, 2) NOT NULL,
+    stockable BOOLEAN NOT NULL,
+    available_stock INT NOT NULL,
+    discount_type INT NOT NULL,
+    discount DECIMAL(18, 2) NOT NULL,
+    is_product_industrialized BOOLEAN NOT NULL,
+    weight VARCHAR(50),
+    weight_type VARCHAR(50),
+    serves_how_many_people INT NOT NULL,
+    has_availability BOOLEAN NOT NULL,
+    has_extra BOOLEAN NOT NULL,
+    highlights BOOLEAN NOT NULL,
+    views INT NOT NULL,
+    status INT NOT NULL,
+    store_id INT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT now(),
+    updated_at TIMESTAMP NULL DEFAULT NULL,
+    CONSTRAINT fk_store FOREIGN KEY (store_id) REFERENCES PUBLIC.stores(id)
+);

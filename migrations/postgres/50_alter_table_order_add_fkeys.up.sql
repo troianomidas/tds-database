@@ -1,0 +1,3 @@
+ALTER TABLE PUBLIC.orders ADD CONSTRAINT fk_payment_methods FOREIGN KEY (payment_method_id) REFERENCES PUBLIC.payment_methods(id) MATCH FULL;
+ALTER TABLE PUBLIC.orders ADD CONSTRAINT fk_collaborators FOREIGN KEY (collaborator_id) REFERENCES PUBLIC.collaborators(id) MATCH FULL;
+ALTER TABLE PUBLIC.orders ADD CONSTRAINT fk_store_deliveries FOREIGN KEY (delivery_type_id) REFERENCES PUBLIC.store_deliveries(id) MATCH FULL;
