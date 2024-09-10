@@ -1,0 +1,1 @@
+ALTER TABLE PUBLIC.products ADD CONSTRAINT fk_product_categories FOREIGN KEY (category_id) REFERENCES PUBLIC.product_categories(id) MATCH FULL;
